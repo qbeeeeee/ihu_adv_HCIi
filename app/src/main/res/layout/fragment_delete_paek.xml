@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DeletePaekFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DELETE PAKETO EKDROMIS"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_margin="24dp"/>
+
+    <EditText
+        android:id="@+id/EditTextPaekPak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="insert paketo id"/>
+
+    <EditText
+        android:id="@+id/EditTextPaekGraf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Insert grafeio id" />
+
+    <EditText
+        android:id="@+id/EditTextPaekEkdromi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Insert kwdikos ekdromis id" />
+
+    <Button
+        android:id="@+id/delpaek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp" />
+
+</LinearLayout>

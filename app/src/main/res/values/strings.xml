@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">testingqbee</string>
+
+    <string-array name="queries_array">
+        <item> query 1</item>
+        <item> query 2</item>
+        <item> query 3</item>
+        <item> query 4</item>
+    </string-array>
+    <string-array name="queries_description_array">
+        <item> 1. Εμφανίστε τον πίνακα Taxidiotiko.</item>
+        <item> 2. Εμφανίστε τον πίνακα Protinomeni ekdromi.</item>
+        <item> 3. Εμφανίστε τον πίνακα Paketo ekdromis.</item>
+        <item> 4. Εμφανίστε τα ονόματα και τα ID όλων των ταξιδιοτικων.</item>
+    </string-array>
+</resources>
