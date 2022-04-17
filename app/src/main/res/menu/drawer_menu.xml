@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Homepage">
+        <menu>
+            <item
+                android:id="@+id/homeFr"
+                android:icon="@drawable/outline_home_black_48"
+                android:title="Home">
+            </item>
+        </menu>
+    </item>
+    <item android:title="Workspace"
+        >
+        <menu>
+            <group android:checkableBehavior="single"
+                >
+                <item
+                    android:id="@+id/insertFr"
+                    android:icon="@drawable/outline_insert_drive_file_black_48"
+                    android:title="Insert">
+                </item>
+                <item
+                    android:id="@+id/deleteFr"
+                    android:icon="@drawable/outline_delete_black_48"
+                    android:title="Delete">
+                </item>
+                <item
+                    android:id="@+id/queryFr"
+                    android:icon="@drawable/outline_question_answer_black_48"
+                    android:title="Query">
+                </item>
+                <item
+                    android:id="@+id/updateFr"
+                    android:icon="@drawable/outline_upgrade_black_48"
+                    android:title="Update">
+                </item>
+            </group>
+        </menu>
+    </item>
+    <item android:title="settings">
+        <menu>
+            <item
+                android:id="@+id/settingsFr"
+                android:icon="@drawable/outline_settings_black_48"
+                android:title="AppSettings">
+            </item>
+        </menu>
+    </item>
+
+</menu>

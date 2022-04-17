@@ -1,14 +1,29 @@
 package com.example.testingqbee;
 
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     public static FragmentManager fragmentManager;
     public static TaxiDatabase myAppDatabase;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +31,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
-        myAppDatabase = Room.databaseBuilder(getApplicationContext(),TaxiDatabase.class,"taxiBD").allowMainThreadQueries().build();
-        if(findViewById(R.id.fragment_container)!=null){
-            if(savedInstanceState!=null){
+        myAppDatabase = Room.databaseBuilder(getApplicationContext(), TaxiDatabase.class, "taxiBD").allowMainThreadQueries().build();
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigationView);
+
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
                 return;
             }
-            fragmentManager.beginTransaction().add(R.id.fragment_container, new menuFragment()).commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_container, new emptyActivity()).commit();
         }
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.insertFr:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new insertFragment()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                    case R.id.deleteFr:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new deleteFragment()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                    case R.id.updateFr:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new updateFragment()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                    case R.id.queryFr:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new QueryFragment()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                    case R.id.homeFr:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new emptyActivity()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 }

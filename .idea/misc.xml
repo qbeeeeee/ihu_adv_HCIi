@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/ic_launcher_background.xml" value="0.333" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/activity_drawer.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_delete.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_delete_paek.xml" value="0.358695652173913" />
@@ -18,6 +20,11 @@
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_paek.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_proek.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_taxi.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar2_layout.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar_layout.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/welcome.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/menu/toolbar2_layout.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

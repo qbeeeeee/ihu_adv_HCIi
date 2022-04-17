@@ -2,11 +2,26 @@ package com.example.testingqbee;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "Paek")
+@Entity (tableName = "Paek" /* ,
+        primaryKeys = {"idpak","idgraf","idekd"},
+        foreignKeys = {
+        @ForeignKey(entity = Taxi.class,
+                parentColumns = "Tid",
+                childColumns = "idgraf",
+                onUpdate = ForeignKey.CASCADE,
+                onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = Proek.class,
+                parentColumns = "Proekid",
+                childColumns = "idekd",
+                onUpdate = ForeignKey.CASCADE,
+                onDelete = ForeignKey.CASCADE)
+                } */
+        )
 public class Paek {
-    @PrimaryKey @ColumnInfo (name = "idpak")
+    @PrimaryKey@ColumnInfo (name = "idpak")
     private int idpaketou;
 
     @ColumnInfo (name = "idgraf")
