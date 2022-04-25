@@ -75,4 +75,9 @@ public class Paek {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(idpaketou);
+    }
 }

@@ -16,10 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     public static FragmentManager fragmentManager;
     public static TaxiDatabase myAppDatabase;
+    public static FirebaseFirestore db;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
+
+        db = FirebaseFirestore.getInstance();
+
 
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
@@ -65,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.homeFr:
                         MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new emptyActivity()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
+                    case R.id.insertReservation:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new reservationFragment()).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                 }

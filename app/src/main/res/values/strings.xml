@@ -13,4 +13,10 @@
         <item> 3. Εμφανίστε τον πίνακα Paketo ekdromis.</item>
         <item> 4. Εμφανίστε τα ονόματα και τα ID όλων των ταξιδιοτικων.</item>
     </string-array>
+    <string-array name="hotels">
+        <item>Trivago</item>
+        <item>Kapsis</item>
+        <item>Vergina</item>
+
+    </string-array>
 </resources>

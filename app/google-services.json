@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441659484030",
+    "project_id": "ihu-advhci",
+    "storage_bucket": "ihu-advhci.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441659484030:android:73df79a806289d0f42f52f",
+        "android_client_info": {
+          "package_name": "com.example.testingqbee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441659484030-ms05c0p3e04suk74vtg96mn4df4828f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHAI7LmQRCljgPxHEElysv0PaohThhEDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441659484030-ms05c0p3e04suk74vtg96mn4df4828f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
