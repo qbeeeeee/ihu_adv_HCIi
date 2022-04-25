@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new reservationFragment()).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
+                    case R.id.queryReservation:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new QueryReservation()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return  true;
                 }
                 return false;
             }

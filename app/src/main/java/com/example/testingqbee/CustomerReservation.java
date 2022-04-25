@@ -4,7 +4,7 @@ public class CustomerReservation {
 
     private String customerName;
     private String hotelName;
-    private String rID;
+    private int rID;
     private int travelPackageID;
 
     public CustomerReservation(){};
@@ -21,11 +21,11 @@ public class CustomerReservation {
         return hotelName;
     }
 
-    public String getrID() {
+    public int getrID() {
         return rID;
     }
 
-    public void setrID(String rID) {
+    public void setrID(int rID) {
         this.rID = rID;
     }
 

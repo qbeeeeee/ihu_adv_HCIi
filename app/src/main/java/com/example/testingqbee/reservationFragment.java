@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
 
 
 public class reservationFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -46,7 +47,12 @@ public class reservationFragment extends Fragment implements AdapterView.OnItemS
     resBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            String Var_rsvID = resID.getText().toString();
+            int Var_rsvID = 0;
+            try{
+                Var_rsvID = Integer.parseInt(resID.getText().toString());
+            }catch (NumberFormatException ex){
+                System.out.println("Could not parse " + ex);
+            }
             String Var_user = user.getText().toString();
             int Var_travel_pack_id = 0;
             try{
@@ -57,26 +63,41 @@ public class reservationFragment extends Fragment implements AdapterView.OnItemS
 
             String Var_hotel = hotelspinner.getSelectedItem().toString();
 
-            try {
-                CustomerReservation res = new CustomerReservation();
-                res.setrID(Var_rsvID);
-                res.setCustomerName(Var_user);
-                res.setHotelName(Var_hotel);
-                res.setTravelPackageID(Var_travel_pack_id);
-                MainActivity.db.
-                        collection("CustomerReservation").
-                        document(""+Var_rsvID).
-                        set(res).
-                        addOnCompleteListener(task -> {
-                            Toast.makeText(getActivity(), "Reservation added", Toast.LENGTH_LONG).show();
+            boolean idExists = false;
 
-                        }).
-                        addOnFailureListener(e -> {
-                            Toast.makeText(getActivity(), "add operation failed", Toast.LENGTH_LONG).show();
-                        });
-            }catch(Exception e){
-                String message = e.getMessage();
-                Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+            List<Paek> paek = MainActivity.myAppDatabase.myDao().getPaek();
+            for (Paek i : paek) {
+                int id = i.getIdpaketou();
+                 if (id == Var_travel_pack_id) {
+                    idExists = true;
+                 }
+            }
+
+            if(idExists){
+                try {
+                    CustomerReservation res = new CustomerReservation();
+                    res.setrID(Var_rsvID);
+                    res.setCustomerName(Var_user);
+                    res.setHotelName(Var_hotel);
+                    res.setTravelPackageID(Var_travel_pack_id);
+                    MainActivity.db.
+                            collection("CustomerReservation").
+                            document(""+Var_rsvID).
+                            set(res).
+                            addOnCompleteListener(task -> {
+                                Toast.makeText(getActivity(), "Reservation added", Toast.LENGTH_LONG).show();
+
+                            }).
+                            addOnFailureListener(e -> {
+                                Toast.makeText(getActivity(), "add operation failed", Toast.LENGTH_LONG).show();
+                            });
+                }catch(Exception e){
+                    String message = e.getMessage();
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                }
+            }else{
+                String error = "Travel Package ID does not exist";
+                Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
             }
         }
     });
