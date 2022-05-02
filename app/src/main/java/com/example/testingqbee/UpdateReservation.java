@@ -76,7 +76,7 @@ public class UpdateReservation extends Fragment implements AdapterView.OnItemSel
                 Map<String, Object> map = new HashMap<>();
                 map.put("customerName",String.valueOf(Var_user));
                 map.put("hotelName", String.valueOf(Var_hotel));
-                map.put("travelPackageID", String.valueOf(Var_travel_pack_id));
+                map.put("travelPackageID", Var_travel_pack_id);
 
                 docRef.update(map)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
