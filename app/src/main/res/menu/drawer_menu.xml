@@ -43,12 +43,12 @@
                 </item>
                 <item
                     android:id="@+id/queryReservation"
-                    android:icon="@drawable/outline_insert_drive_file_black_48"
+                    android:icon="@drawable/outline_question_answer_black_48"
                     android:title="Query Reservation">
                 </item>
                 <item
                     android:id="@+id/updateReservation"
-                    android:icon="@drawable/outline_insert_drive_file_black_48"
+                    android:icon="@drawable/outline_upgrade_black_48"
                     android:title="Update Reservation">
                 </item>
             </group>
