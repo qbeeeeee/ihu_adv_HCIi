@@ -5,8 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "Paek" /* ,
-        primaryKeys = {"idpak","idgraf","idekd"},
+@Entity (tableName = "Paek"  ,
+        primaryKeys = {"idpak"},
         foreignKeys = {
         @ForeignKey(entity = Taxi.class,
                 parentColumns = "Tid",
@@ -18,10 +18,10 @@ import androidx.room.PrimaryKey;
                 childColumns = "idekd",
                 onUpdate = ForeignKey.CASCADE,
                 onDelete = ForeignKey.CASCADE)
-                } */
+                }
         )
 public class Paek {
-    @PrimaryKey@ColumnInfo (name = "idpak")
+    @ColumnInfo (name = "idpak")
     private int idpaketou;
 
     @ColumnInfo (name = "idgraf")
