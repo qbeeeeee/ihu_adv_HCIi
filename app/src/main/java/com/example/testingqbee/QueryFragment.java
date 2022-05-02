@@ -65,7 +65,7 @@ public class QueryFragment extends Fragment {
                             int code = i.getId();
                             String name = i.getName();
                             String adress = i.getAdress();
-                            result = result + "\n Id: " + code + "\n Name: " + name + "\n Adress: " + adress;
+                            result = result + "\n Id: " + code + "\n Name: " + name + "\n Adress: " + adress + "\n";
                         }
                         querytextresult.setText(result);
                         break;
@@ -77,7 +77,7 @@ public class QueryFragment extends Fragment {
                             String xwra = i.getXwra();
                             int time = i.getDiarkeia();
                             String eidos = i.getEidos();
-                            result = result + "\n Id: " + code + "\n Poli: " + poli + "\n Xwra: " + xwra + "\n Diarkeia: " + time + "\n Eidos: " + eidos;
+                            result = result + "\n Id: " + code + "\n Poli: " + poli + "\n Xwra: " + xwra + "\n Diarkeia: " + time + "\n Eidos: " + eidos + "\n";
                         }
                         querytextresult.setText(result);
                         break;
@@ -90,7 +90,7 @@ public class QueryFragment extends Fragment {
                             String date = i.getDate();
                             int price = i.getPrice();
                             result = result + "\n IdPaketou: " + idpaketou + "\n IdGrafeiou: " + idgrafeiou + "\n IdEkdromis: " + idekdromis +
-                                    "\n Date: " + date + "\n Price: " + price;
+                                    "\n Date: " + date + "\n Price: " + price + "\n";
                         }
                         querytextresult.setText(result);
                         break;
