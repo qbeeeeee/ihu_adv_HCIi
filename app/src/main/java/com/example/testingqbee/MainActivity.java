@@ -4,11 +4,13 @@ package com.example.testingqbee;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -29,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.Theme_Dark);
+        } else {
+            setTheme(R.style.Theme_Light);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         fragmentManager = getSupportFragmentManager();
@@ -86,9 +93,18 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateReservation()).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return  true;
+                    case R.id.settingsFr:
+                        openActivity2();
+                        drawerLayout.closeDrawers();
+                        finish();
+                        return  true;
                 }
                 return false;
             }
         });
+    }
+    public void openActivity2(){
+        Intent intent = new Intent(this,settingsActivity.class);
+        startActivity(intent);
     }
 }
