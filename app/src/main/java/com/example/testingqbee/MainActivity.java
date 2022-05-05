@@ -93,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateReservation()).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return  true;
+                    case R.id.deleteReservation:
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteReservation()).addToBackStack(null).commit();
+                        drawerLayout.closeDrawers();
+                        return  true;
                     case R.id.settingsFr:
                         openActivity2();
                         drawerLayout.closeDrawers();

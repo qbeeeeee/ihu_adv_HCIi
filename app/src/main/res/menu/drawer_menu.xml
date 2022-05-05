@@ -51,6 +51,11 @@
                     android:icon="@drawable/outline_upgrade_black_48"
                     android:title="Update Reservation">
                 </item>
+                <item
+                    android:id="@+id/deleteReservation"
+                    android:icon="@drawable/outline_delete_black_48"
+                    android:title="Delete Reservation">
+                </item>
             </group>
         </menu>
     </item>

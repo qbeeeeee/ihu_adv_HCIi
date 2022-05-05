@@ -84,6 +84,7 @@ public class UpdateReservation extends Fragment implements AdapterView.OnItemSel
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getActivity(), "Reservation updated", Toast.LENGTH_LONG).show();
 
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
