@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.settingsFr:
                         openActivity2();
                         drawerLayout.closeDrawers();
-                        finish();
                         return  true;
                 }
                 return false;
@@ -106,5 +105,6 @@ public class MainActivity extends AppCompatActivity {
     public void openActivity2(){
         Intent intent = new Intent(this,settingsActivity.class);
         startActivity(intent);
+        finish();
     }
 }
