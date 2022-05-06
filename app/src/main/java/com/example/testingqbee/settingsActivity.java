@@ -12,7 +12,7 @@ import android.widget.CompoundButton;
 
 public class settingsActivity extends AppCompatActivity {
     SwitchCompat switchCompat;
-    Button bn;
+    //Button bn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
@@ -24,20 +24,25 @@ public class settingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Settings");
+
         switchCompat = findViewById(R.id.bt_switch);
-        bn = findViewById(R.id.backButton);
+        //bn = findViewById(R.id.backButton);
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             switchCompat.setChecked(true);
         }
 
-        bn.setOnClickListener(new View.OnClickListener() {
+        /*bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity3();
                 finish();
             }
         });
+
+         */
 
 
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -53,6 +58,17 @@ public class settingsActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent myIntent = new Intent(this, MainActivity.class);
+
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(myIntent);
+        finish();
+    }
+
+
     public void openActivity3(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);

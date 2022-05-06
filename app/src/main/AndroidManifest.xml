@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Light">
         <activity
             android:name=".settingsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

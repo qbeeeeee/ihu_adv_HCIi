@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Ti Vazoume Edw");
 
         fragmentManager = getSupportFragmentManager();
         myAppDatabase = Room.databaseBuilder(getApplicationContext(), TaxiDatabase.class, "taxiBD").allowMainThreadQueries().build();
@@ -109,6 +110,6 @@ public class MainActivity extends AppCompatActivity {
     public void openActivity2(){
         Intent intent = new Intent(this,settingsActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 }

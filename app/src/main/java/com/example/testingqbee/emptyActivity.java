@@ -61,6 +61,6 @@ public class emptyActivity extends Fragment implements View.OnClickListener {
     public void openActivity2(){
         Intent intent = new Intent(getActivity(),settingsActivity.class);
         startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 }
