@@ -55,7 +55,7 @@ public class DeleteReservation extends Fragment {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(getActivity(), "Reservation Deleted", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), "Reservation Deleted ", Toast.LENGTH_LONG).show();
                                 deleteRes.setText("");
                             }
                         })
