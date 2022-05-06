@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 public class emptyActivity extends Fragment implements View.OnClickListener {
     CardView cSettings;
@@ -59,5 +61,6 @@ public class emptyActivity extends Fragment implements View.OnClickListener {
     public void openActivity2(){
         Intent intent = new Intent(getActivity(),settingsActivity.class);
         startActivity(intent);
+        getActivity().finish();
     }
 }
