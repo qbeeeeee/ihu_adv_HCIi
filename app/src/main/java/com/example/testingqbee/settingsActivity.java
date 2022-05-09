@@ -3,15 +3,19 @@ package com.example.testingqbee;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 public class settingsActivity extends AppCompatActivity {
     SwitchCompat switchCompat;
+    Toolbar toolbar;
     //Button bn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +28,11 @@ public class settingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Settings");
+
+        getSupportActionBar().setTitle("");
 
         switchCompat = findViewById(R.id.bt_switch);
         //bn = findViewById(R.id.backButton);

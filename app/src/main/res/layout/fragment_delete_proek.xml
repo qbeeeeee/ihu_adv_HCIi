@@ -14,9 +14,11 @@
         android:text="DELETE PROTINOMENI EKDROMI"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
+        android:layout_marginTop="100dp"
         android:textStyle="bold"
         android:textSize="24dp"
-        android:layout_margin="24dp"/>
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"/>
 
     <EditText
         android:id="@+id/editTextproekdel"

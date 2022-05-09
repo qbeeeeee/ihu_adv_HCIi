@@ -25,8 +25,12 @@
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/arrow_back-48px.xml" value="0.2515" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/card_background.xml" value="0.321" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/card_background2.xml" value="0.2715" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.28" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2715" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/ic_launcher_background.xml" value="0.333" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/aaaa.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/aaaaa.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/activity_drawer.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/activity_settings.xml" value="0.358695652173913" />
@@ -42,14 +46,19 @@
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_menu.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_query.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_query_reservation.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_reservation.xml" value="0.33" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_settigns.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_settings.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_paek.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_proek.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_reservation.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/fragment_update_taxi.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/image.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/preferences.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/settingspref.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar2.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar2_layout.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/toolbar_layout.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/layout/welcome.xml" value="0.358695652173913" />

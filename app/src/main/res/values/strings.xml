@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">testingqbee</string>
+    <string name="app_name">TaxidiotikoApp</string>
 
     <string-array name="queries_array">
         <item> query 1</item>
