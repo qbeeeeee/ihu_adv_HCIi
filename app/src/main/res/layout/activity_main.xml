@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
         <include layout="@layout/toolbar"
             android:id="@+id/toolbar"/>
+        <include layout="@layout/adsadsa"/>
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -25,6 +26,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/drawer_menu">
-
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

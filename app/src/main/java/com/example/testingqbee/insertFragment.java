@@ -1,5 +1,6 @@
 package com.example.testingqbee;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,6 @@ public class insertFragment extends Fragment implements View.OnClickListener {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,7 +29,6 @@ public class insertFragment extends Fragment implements View.OnClickListener {
         Bn_ins_Paek.setOnClickListener(this);
         return view;
     }
-
 
     @Override
     public void onClick(View v) {
