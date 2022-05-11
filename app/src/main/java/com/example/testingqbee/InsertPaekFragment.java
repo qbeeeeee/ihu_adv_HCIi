@@ -58,18 +58,24 @@ public class InsertPaekFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
                 String Var_date = editText4.getText().toString();
-                try {
-                    Paek paek = new Paek();
-                    paek.setIdpaketou(Var_paketoid);
-                    paek.setIdgrafeiou(Var_grafeioid);
-                    paek.setIdekdromis(Var_ekdromiid);
-                    paek.setDate(Var_date);
-                    paek.setPrice(Var_price);
-                    MainActivity.myAppDatabase.myDao().insertPaek(paek);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 || editText4.getText().toString().trim().length() < 1 ||
+                 editText5.getText().toString().trim().length() < 1) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        Paek paek = new Paek();
+                        paek.setIdpaketou(Var_paketoid);
+                        paek.setIdgrafeiou(Var_grafeioid);
+                        paek.setIdekdromis(Var_ekdromiid);
+                        paek.setDate(Var_date);
+                        paek.setPrice(Var_price);
+                        MainActivity.myAppDatabase.myDao().insertPaek(paek);
+                        Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

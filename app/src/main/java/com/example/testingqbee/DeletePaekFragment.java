@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class DeletePaekFragment extends Fragment {
     EditText editText1, editText2, editText3;
     Button ribn;
@@ -48,16 +50,32 @@ public class DeletePaekFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
 
-                try {
-                    Paek paek = new Paek();
-                    paek.setIdpaketou(Var_idpak);
-                    paek.setIdgrafeiou(Var_idgrafeiou);
-                    paek.setIdekdromis(Var_idekdromis);
-                    MainActivity.myAppDatabase.myDao().deletePaek(paek);
-                    Toast.makeText(getActivity(),"Paek deleted.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                boolean idExists = false;
+
+                List<Paek> paek2 = MainActivity.myAppDatabase.myDao().getPaek();
+                for (Paek i : paek2) {
+                    int id = i.getIdpaketou();
+                    if (id == Var_idpak) {
+                        idExists = true;
+                    }
+                }
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 ) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else if(!idExists) {
+                    Toast.makeText(getActivity(), "ID paketou does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    try {
+                        Paek paek = new Paek();
+                        paek.setIdpaketou(Var_idpak);
+                        paek.setIdgrafeiou(Var_idgrafeiou);
+                        paek.setIdekdromis(Var_idekdromis);
+                        MainActivity.myAppDatabase.myDao().deletePaek(paek);
+                        Toast.makeText(getActivity(), "Paek deleted.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class DeleteProekFragment extends Fragment {
     EditText editText;
     Button button;
@@ -35,11 +37,26 @@ public class DeleteProekFragment extends Fragment {
                 } catch (NumberFormatException ex) {
                     System.out.println("Could not parse " + ex);
                 }
-                Proek proek = new Proek();
-                proek.setId(Var_id);
-                MainActivity.myAppDatabase.myDao().deleteProek(proek);
-                Toast.makeText(getActivity(),"Proek deleted ",Toast.LENGTH_LONG).show();
-                editText.setText("");
+                boolean idExists = false;
+
+                List<Proek> proek2 = MainActivity.myAppDatabase.myDao().getProek();
+                for (Proek i : proek2) {
+                    int id = i.getId();
+                    if (id == Var_id) {
+                        idExists = true;
+                    }
+                }
+                if (editText.getText().toString().trim().length() < 1 ) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else if(!idExists) {
+                    Toast.makeText(getActivity(), "ID does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    Proek proek = new Proek();
+                    proek.setId(Var_id);
+                    MainActivity.myAppDatabase.myDao().deleteProek(proek);
+                    Toast.makeText(getActivity(), "Proek deleted ", Toast.LENGTH_LONG).show();
+                }
+                    editText.setText("");
             }
         });
         return view;

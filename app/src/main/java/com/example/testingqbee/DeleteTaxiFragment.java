@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
 public class DeleteTaxiFragment extends Fragment {
     EditText editText;
     Button button;
@@ -34,11 +36,26 @@ public class DeleteTaxiFragment extends Fragment {
                 } catch (NumberFormatException ex) {
                     System.out.println("Could not parse " + ex);
                 }
-                Taxi taxi = new Taxi();
-                taxi.setId(Var_id);
-                MainActivity.myAppDatabase.myDao().deleteTaxi(taxi);
-                Toast.makeText(getActivity(),"Taxi deleted ",Toast.LENGTH_LONG).show();
-                editText.setText("");
+                boolean idExists = false;
+
+                List<Taxi> taxi2 = MainActivity.myAppDatabase.myDao().getTaxi();
+                for (Taxi i : taxi2) {
+                    int id = i.getId();
+                    if (id == Var_id) {
+                        idExists = true;
+                    }
+                }
+                if (editText.getText().toString().trim().length() < 1 ) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else if(!idExists) {
+                    Toast.makeText(getActivity(), "ID does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    Taxi taxi = new Taxi();
+                    taxi.setId(Var_id);
+                    MainActivity.myAppDatabase.myDao().deleteTaxi(taxi);
+                    Toast.makeText(getActivity(), "Taxi deleted ", Toast.LENGTH_LONG).show();
+                }
+                    editText.setText("");
             }
         });
         return view;

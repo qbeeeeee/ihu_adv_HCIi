@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class UpdatePaekFragment extends Fragment {
     EditText editText1, editText2, editText3 , editText4, editText5;
     Button ribn;
@@ -55,18 +57,57 @@ public class UpdatePaekFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
                 String Var_date = editText4.getText().toString();
-                try {
-                    Paek paek = new Paek();
-                    paek.setIdpaketou(Var_paketoid);
-                    paek.setIdgrafeiou(Var_grafeioid);
-                    paek.setIdekdromis(Var_ekdromiid);
-                    paek.setDate(Var_date);
-                    paek.setPrice(Var_price);
-                    MainActivity.myAppDatabase.myDao().updatePaek(paek);
-                    Toast.makeText(getActivity(),"Paketo ekdromis updated.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                boolean idExists = false;
+                boolean idExists2 = false;
+                boolean idExists3 = false;
+
+                List<Proek> proek2 = MainActivity.myAppDatabase.myDao().getProek();
+                for (Proek i : proek2) {
+                    int id = i.getId();
+                    if (id == Var_ekdromiid) {
+                        idExists2 = true;
+                    }
+                }
+
+                List<Taxi> taxi2 = MainActivity.myAppDatabase.myDao().getTaxi();
+                for (Taxi i : taxi2) {
+                    int id = i.getId();
+                    if (id == Var_grafeioid) {
+                        idExists3 = true;
+                    }
+                }
+
+                List<Paek> paek2 = MainActivity.myAppDatabase.myDao().getPaek();
+                for (Paek i : paek2) {
+                    int id = i.getIdpaketou();
+                    if (id == Var_paketoid) {
+                        idExists = true;
+                    }
+                }
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 || editText4.getText().toString().trim().length() < 1 ||
+                        editText5.getText().toString().trim().length() < 1) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                }else if(!idExists) {
+                    Toast.makeText(getActivity(), "Paketo ID does not exist.", Toast.LENGTH_LONG).show();
+                }else if(!idExists2) {
+                    Toast.makeText(getActivity(), "Paketo Ekdromis ID does not exist.", Toast.LENGTH_LONG).show();
+                }else if(!idExists3) {
+                    Toast.makeText(getActivity(), "ID Taxidiotikou does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    try {
+                        Paek paek = new Paek();
+                        paek.setIdpaketou(Var_paketoid);
+                        paek.setIdgrafeiou(Var_grafeioid);
+                        paek.setIdekdromis(Var_ekdromiid);
+                        paek.setDate(Var_date);
+                        paek.setPrice(Var_price);
+                        MainActivity.myAppDatabase.myDao().updatePaek(paek);
+                        Toast.makeText(getActivity(), "Paketo ekdromis updated.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

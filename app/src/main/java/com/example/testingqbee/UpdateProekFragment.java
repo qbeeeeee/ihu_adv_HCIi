@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class UpdateProekFragment extends Fragment {
     EditText editText1, editText2, editText3 , editText4, editText5;
     Button bibn;
@@ -48,18 +50,35 @@ public class UpdateProekFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
                 String Var_proekeidos = editText5.getText().toString();
-                try {
-                    Proek proek = new Proek();
-                    proek.setId(Var_proekid);
-                    proek.setPoli(Var_proekpoli);
-                    proek.setXwra(Var_proekxwra);
-                    proek.setDiarkeia(Var_proekdiarkeia);
-                    proek.setEidos(Var_proekeidos);
-                    MainActivity.myAppDatabase.myDao().updateProek(proek);
-                    Toast.makeText(getActivity(),"Protinomeni ekdromi updated.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                boolean idExists = false;
+
+                List<Proek> proek2 = MainActivity.myAppDatabase.myDao().getProek();
+                for (Proek i : proek2) {
+                    int id = i.getId();
+                    if (id == Var_proekid) {
+                        idExists = true;
+                    }
+                }
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 || editText4.getText().toString().trim().length() < 1 ||
+                        editText5.getText().toString().trim().length() < 1) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                }else if(!idExists) {
+                    Toast.makeText(getActivity(), "ID does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    try {
+                        Proek proek = new Proek();
+                        proek.setId(Var_proekid);
+                        proek.setPoli(Var_proekpoli);
+                        proek.setXwra(Var_proekxwra);
+                        proek.setDiarkeia(Var_proekdiarkeia);
+                        proek.setEidos(Var_proekeidos);
+                        MainActivity.myAppDatabase.myDao().updateProek(proek);
+                        Toast.makeText(getActivity(), "Protinomeni ekdromi updated.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

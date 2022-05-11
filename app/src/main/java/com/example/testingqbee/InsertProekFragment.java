@@ -48,18 +48,24 @@ public class InsertProekFragment extends Fragment {
                     System.out.println("Could not parse " + ex);
                 }
                 String Var_eidosek = editText5.getText().toString();
-                try {
-                    Proek proek = new Proek();
-                    proek.setId(Var_proekid);
-                    proek.setPoli(Var_proekpoli);
-                    proek.setXwra(Var_proekxwra);
-                    proek.setDiarkeia(Var_diarkeia);
-                    proek.setEidos(Var_eidosek);
-                    MainActivity.myAppDatabase.myDao().insertProek(proek);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 || editText4.getText().toString().trim().length() < 1 ||
+                        editText5.getText().toString().trim().length() < 1) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        Proek proek = new Proek();
+                        proek.setId(Var_proekid);
+                        proek.setPoli(Var_proekpoli);
+                        proek.setXwra(Var_proekxwra);
+                        proek.setDiarkeia(Var_diarkeia);
+                        proek.setEidos(Var_eidosek);
+                        MainActivity.myAppDatabase.myDao().insertProek(proek);
+                        Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

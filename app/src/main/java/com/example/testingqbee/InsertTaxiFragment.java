@@ -41,16 +41,21 @@ public class InsertTaxiFragment extends Fragment {
                 String Var_taxiname = editText2.getText().toString();
                 String Var_taxiadress = editText3.getText().toString();
 
-                try {
-                    Taxi taxi = new Taxi();
-                    taxi.setId(Var_taxiid);
-                    taxi.setName(Var_taxiname);
-                    taxi.setAdress(Var_taxiadress);
-                    MainActivity.myAppDatabase.myDao().insertTaxi(taxi);
-                    Toast.makeText(getActivity(),"Record added.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1 ) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        Taxi taxi = new Taxi();
+                        taxi.setId(Var_taxiid);
+                        taxi.setName(Var_taxiname);
+                        taxi.setAdress(Var_taxiadress);
+                        MainActivity.myAppDatabase.myDao().insertTaxi(taxi);
+                        Toast.makeText(getActivity(), "Record added.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");

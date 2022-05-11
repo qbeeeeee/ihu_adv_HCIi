@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class UpdateTaxiFragment extends Fragment {
     EditText editText1, editText2, editText3, editText4;
     Button sibn;
@@ -39,16 +41,32 @@ public class UpdateTaxiFragment extends Fragment {
                 }
                 String Var_taxiname = editText2.getText().toString();
                 String Var_taxiadress = editText3.getText().toString();
-                try {
-                    Taxi taxi = new Taxi();
-                    taxi.setId(Var_taxiid);
-                    taxi.setName(Var_taxiname);
-                    taxi.setAdress(Var_taxiadress);
-                    MainActivity.myAppDatabase.myDao().updateTaxi(taxi);
-                    Toast.makeText(getActivity(),"Taxidiotiko updated.",Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    String message = e.getMessage();
-                    Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
+                boolean idExists = false;
+
+                List<Taxi> taxi2 = MainActivity.myAppDatabase.myDao().getTaxi();
+                for (Taxi i : taxi2) {
+                    int id = i.getId();
+                    if (id == Var_taxiid) {
+                        idExists = true;
+                    }
+                }
+                if (editText1.getText().toString().trim().length() < 1 || editText2.getText().toString().trim().length() < 1
+                        || editText3.getText().toString().trim().length() < 1) {
+                    Toast.makeText(getActivity(), "Sumplirwste ola ta pedia.", Toast.LENGTH_LONG).show();
+                }else if(!idExists) {
+                    Toast.makeText(getActivity(), "ID does not exist.", Toast.LENGTH_LONG).show();
+                }else{
+                    try {
+                        Taxi taxi = new Taxi();
+                        taxi.setId(Var_taxiid);
+                        taxi.setName(Var_taxiname);
+                        taxi.setAdress(Var_taxiadress);
+                        MainActivity.myAppDatabase.myDao().updateTaxi(taxi);
+                        Toast.makeText(getActivity(), "Taxidiotiko updated.", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        String message = e.getMessage();
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    }
                 }
                 editText1.setText("");
                 editText2.setText("");
