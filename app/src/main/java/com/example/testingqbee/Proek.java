@@ -22,6 +22,20 @@ public class Proek {
     @ColumnInfo (name = "Proekeidos")
     private String eidos;
 
+    @ColumnInfo (name = "Proeklatitude")
+    private double lat;
+
+    @ColumnInfo (name = "Proeklongitude")
+    private double lon;
+
+    public double getLat() { return lat; }
+
+    public void setLat(double lat) { this.lat = lat; }
+
+    public double getLon() { return lon; }
+
+    public void setLon(double lon) { this.lon = lon; }
+
     public int getId() {
         return id;
     }
