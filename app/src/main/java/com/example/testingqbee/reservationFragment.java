@@ -13,6 +13,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.List;
 
 
@@ -46,7 +50,9 @@ public class reservationFragment extends Fragment implements AdapterView.OnItemS
 
     resBtn.setOnClickListener(new View.OnClickListener() {
         @Override
+
         public void onClick(View view) {
+
             int Var_rsvID = 0;
             try{
                 Var_rsvID = Integer.parseInt(resID.getText().toString());
@@ -81,17 +87,46 @@ public class reservationFragment extends Fragment implements AdapterView.OnItemS
                     res.setHotelName(Var_hotel);
                     res.setTravelPackageID(Var_travel_pack_id);
 
-                    MainActivity.db.
-                            collection("CustomerReservation").
-                            document(""+Var_rsvID).
-                            set(res).
-                            addOnCompleteListener(task -> {
-                                Toast.makeText(getActivity(), "Reservation added", Toast.LENGTH_LONG).show();
 
-                            }).
-                            addOnFailureListener(e -> {
-                                Toast.makeText(getActivity(), "add operation failed", Toast.LENGTH_LONG).show();
-                            });
+                    int finalVar_rsvID = Var_rsvID;
+                    MainActivity.db.collection("CustomerReservation").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            int exists = 0;
+                            String result = "";
+                            for(QueryDocumentSnapshot documentSnapshot: queryDocumentSnapshots) {
+                                CustomerReservation res = documentSnapshot.toObject(CustomerReservation.class);
+                                int rID = res.getrID();
+
+                                if(rID == finalVar_rsvID){
+                                    exists = 1;
+                                }
+                            }
+                            if(exists == 0){
+                            MainActivity.db.
+                                    collection("CustomerReservation").
+                                    document(""+finalVar_rsvID).
+                                    set(res).
+                                    addOnCompleteListener(task -> {
+                                        Toast.makeText(getActivity(), "Reservation added", Toast.LENGTH_LONG).show();
+
+
+                                    }).
+                                    addOnFailureListener(e -> {
+                                        Toast.makeText(getActivity(), "add operation failed", Toast.LENGTH_LONG).show();
+                                    });
+                            }else{
+                                Toast.makeText(getActivity(), "Reservation with ID " + finalVar_rsvID+" already exists", Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                    });
+
+
+
+
+
+
                 }catch(Exception e){
                     String message = e.getMessage();
                     Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
