@@ -26,7 +26,6 @@ public class InsertProekFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_insert_proek, container, false);
         editText1 = view.findViewById(R.id.ProekEditText1);
         editText2 = view.findViewById(R.id.ProekEditText2);
-        editText3 = view.findViewById(R.id.ProekEditText3);
         editText4 = view.findViewById(R.id.ProekEditText4);
         editText5 = view.findViewById(R.id.ProekEditText5);
         bibn = view.findViewById(R.id.insertProekSubmitButton);
