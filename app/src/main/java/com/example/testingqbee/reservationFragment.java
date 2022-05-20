@@ -80,6 +80,7 @@ public class reservationFragment extends Fragment implements AdapterView.OnItemS
                     res.setCustomerName(Var_user);
                     res.setHotelName(Var_hotel);
                     res.setTravelPackageID(Var_travel_pack_id);
+
                     MainActivity.db.
                             collection("CustomerReservation").
                             document(""+Var_rsvID).
