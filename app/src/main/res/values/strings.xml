@@ -17,6 +17,11 @@
         <item>Trivago</item>
         <item>Kapsis</item>
         <item>Vergina</item>
-
+    </string-array>
+    <string-array name="firebase_queries">
+        <item> 1. Εμφανίστε ολα τα δεδομενα.</item>
+        <item> 2. Κρατησεις στο ξενοδοχειο Kapsis.</item>
+        <item> 3. travelpackageID μικροτερο του 5.</item>
+        <item> 4. Κρατησεις με rID μεγαλυτερο του 2.</item>
     </string-array>
 </resources>

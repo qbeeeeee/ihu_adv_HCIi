@@ -11,21 +11,35 @@
         android:layout_height="24dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
         android:text="Query Result"
         android:textAlignment="center"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="374dp"
+        android:layout_height="67dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/titleresquery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="375dp"
-        android:layout_height="525dp"
+        android:layout_width="370dp"
+        android:layout_height="369dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="49dp"
         android:layout_marginEnd="10dp"
@@ -33,7 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleresquery">
+        app:layout_constraintTop_toBottomOf="@+id/titleresquery"
+        app:layout_constraintVertical_bias="0.0">
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -59,6 +74,22 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/queryrun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="33dp"
+        android:text="RUN"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

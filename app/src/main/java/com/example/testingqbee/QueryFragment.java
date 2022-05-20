@@ -51,6 +51,7 @@ public class QueryFragment extends Fragment {
 
             }
         });
+
         querytextresult = view.findViewById(R.id.txtqueryresult);
         bnqueryrun = view.findViewById(R.id.queryrun);
         bnqueryrun.setOnClickListener(new View.OnClickListener() {
