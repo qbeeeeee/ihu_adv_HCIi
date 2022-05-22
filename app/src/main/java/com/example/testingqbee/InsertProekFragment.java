@@ -47,7 +47,7 @@ public class InsertProekFragment extends Fragment {
         editText5 = view.findViewById(R.id.ProekEditText5);
         bibn = view.findViewById(R.id.insertProekSubmitButton);
 
-        Places.initialize(getActivity().getApplicationContext(), "");
+        Places.initialize(getActivity().getApplicationContext(), "AIzaSyBARqbqqh_0d_ptuMdKVTRr9WMhHb1mxlE");
         editText2.setFocusable(false);
         editText2.setOnClickListener(new View.OnClickListener() {
             @Override

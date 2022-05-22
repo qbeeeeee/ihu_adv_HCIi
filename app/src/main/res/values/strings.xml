@@ -24,4 +24,5 @@
         <item> 3. travelpackageID μικροτερο του 5.</item>
         <item> 4. Κρατησεις με rID μεγαλυτερο του 2.</item>
     </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
