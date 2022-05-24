@@ -6,12 +6,16 @@
         <item> query 2</item>
         <item> query 3</item>
         <item> query 4</item>
+        <item> query 5</item>
+        <item> query 6</item>
     </string-array>
     <string-array name="queries_description_array">
         <item> 1. Εμφανίστε τον πίνακα Taxidiotiko.</item>
         <item> 2. Εμφανίστε τον πίνακα Protinomeni ekdromi.</item>
         <item> 3. Εμφανίστε τον πίνακα Paketo ekdromis.</item>
         <item> 4. Εμφανίστε τα ονόματα και τα ID όλων των ταξιδιοτικων.</item>
+        <item> 5. Εμφανίστε τις χώρες και τα ID των προτεινόμενων εκδρομών όπου ID = 1.</item>
+        <item> 6. Εμφανίστε τις ημερομηνίες και τα ID των πακέτων όπου ID πακέτου > 5.</item>
     </string-array>
     <string-array name="hotels">
         <item>Trivago</item>

@@ -50,4 +50,12 @@ public interface MyDao {
             "FROM Taxi")
     public List<ResultStringInt> getQuery4();
 
+    @Query("SELECT Proekpoli as field1, Proekid as field2 " +
+            "FROM Proek where Proekid = 1")
+    public List<ResultStringInt> getQuery5();
+
+    @Query("SELECT Paekdate as field1, idpak as field2 " +
+            "FROM Paek where idpak > 5")
+    public List<ResultStringInt> getQuery6();
+
 }

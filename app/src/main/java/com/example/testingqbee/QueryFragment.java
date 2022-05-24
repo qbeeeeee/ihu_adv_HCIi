@@ -135,6 +135,24 @@ public class QueryFragment extends Fragment {
                         }
                         querytextresult.setText(result);
                         break;
+                    case 5:
+                        List<ResultStringInt> resultStringInts2 = MainActivity.myAppDatabase.myDao().getQuery5();
+                        for (ResultStringInt i : resultStringInts2) {
+                            String Proek_poli = i.getField1();
+                            int Proek_id = i.getField2();
+                            result = result + "\n Country: " + Proek_poli + "\n Proek ID =" + Proek_id + "\n";
+                        }
+                        querytextresult.setText(result);
+                        break;
+                    case 6:
+                        List<ResultStringInt> resultStringInts3 = MainActivity.myAppDatabase.myDao().getQuery6();
+                        for (ResultStringInt i : resultStringInts3) {
+                            String Paek_date = i.getField1();
+                            int Paek_id = i.getField2();
+                            result = result + "\n Paek date: " + Paek_date + "\n Paketo ID: " + Paek_id + "\n";
+                        }
+                        querytextresult.setText(result);
+                        break;
                 }
             }
         });
