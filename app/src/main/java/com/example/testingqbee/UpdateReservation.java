@@ -54,14 +54,15 @@ public class UpdateReservation extends Fragment implements AdapterView.OnItemSel
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int Var_rsvID = 0;
+                int Var_rsvID = -1;
                 try{
                     Var_rsvID = Integer.parseInt(idField.getText().toString());
                 }catch (NumberFormatException ex){
                     System.out.println("Could not parse " + ex);
                 }
-                String Var_user = nameField.getText().toString();
-                int Var_travel_pack_id = 0;
+                String Var_user = "";
+                Var_user = nameField.getText().toString();
+                int Var_travel_pack_id = -1;
                 try{
                     Var_travel_pack_id = Integer.parseInt(packageField.getText().toString());
                 }catch (NumberFormatException ex){
@@ -73,27 +74,35 @@ public class UpdateReservation extends Fragment implements AdapterView.OnItemSel
                         .collection("CustomerReservation")
                         .document(String.valueOf(Var_rsvID));
 
-                Map<String, Object> map = new HashMap<>();
-                map.put("customerName",String.valueOf(Var_user));
-                map.put("hotelName", String.valueOf(Var_hotel));
-                map.put("travelPackageID", Var_travel_pack_id);
+                if(idField.getText().toString().trim().length() <1 || nameField.getText().toString().trim().length() < 1|| packageField.getText().toString().trim().length() < 1){
+                    Toast.makeText(getActivity(), "Error: Fields can't be empty", Toast.LENGTH_LONG).show();
 
-                docRef.update(map)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(getActivity(), "Reservation updated", Toast.LENGTH_LONG).show();
+                }else{
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("customerName",String.valueOf(Var_user));
+                    map.put("hotelName", String.valueOf(Var_hotel));
+                    map.put("travelPackageID", Var_travel_pack_id);
+
+                    docRef.update(map)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(getActivity(), "Reservation updated", Toast.LENGTH_LONG).show();
 
 
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(), "update operation failed", Toast.LENGTH_LONG).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(), "update operation failed", Toast.LENGTH_LONG).show();
 
-                            }
-                        });
+                                }
+                            });
+                }
+
+
+
             }
         });
 

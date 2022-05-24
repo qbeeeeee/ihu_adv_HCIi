@@ -41,30 +41,35 @@ public class DeleteReservation extends Fragment {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int Var_rsvID = 0;
+                int Var_rsvID = -1;
                 try{
                     Var_rsvID = Integer.parseInt(deleteRes.getText().toString());
                 }catch (NumberFormatException ex){
                     System.out.println("Could not parse " + ex);
                 }
 
-                Task<Void> docRef = FirebaseFirestore.getInstance()
-                        .collection("CustomerReservation")
-                        .document(String.valueOf(Var_rsvID))
-                        .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(getActivity(), "Reservation Deleted ", Toast.LENGTH_LONG).show();
-                                deleteRes.setText("");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(), "Delete operation failed", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                if(deleteRes.getText().toString().trim().length() < 1){
+                    Toast.makeText(getActivity(), "Error: Please Insert ID", Toast.LENGTH_LONG).show();
+                }else{
+                    Task<Void> docRef = FirebaseFirestore.getInstance()
+                            .collection("CustomerReservation")
+                            .document(String.valueOf(Var_rsvID))
+                            .delete()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getActivity(), "Reservation Deleted ", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getActivity(), "Reservation Deleted ", Toast.LENGTH_LONG).show();
+                                    deleteRes.setText("");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(), "Delete operation failed", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
             }
         });
 
