@@ -1,5 +1,6 @@
 package com.example.testingqbee;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,18 +11,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class QueryFragment extends Fragment {
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
     TextView querytextView, querytextresult;
-    Button bnqueryrun;
+    Button bnqueryrun, showMap;
+    double[] markCoords;
+    String[] markNames;
     int test;
+
 
     public QueryFragment() {
         // Required empty public constructor
@@ -35,6 +44,8 @@ public class QueryFragment extends Fragment {
         final String[] queryArray = getResources().getStringArray(R.array.queries_description_array);
         querytextView = view.findViewById(R.id.txtquery);
         spinner = view.findViewById(R.id.spinner);
+        showMap = view.findViewById(R.id.viewOnMaps);
+        showMap.setEnabled(false);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.queries_array, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -49,6 +60,18 @@ public class QueryFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        showMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putDoubleArray("coords", markCoords);
+                b.putStringArray("names", markNames);
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                intent.putExtras(b);
+                startActivityForResult(intent, 100);
             }
         });
 
@@ -71,8 +94,16 @@ public class QueryFragment extends Fragment {
                         querytextresult.setText(result);
                         break;
                     case 2:
+                        showMap.setEnabled(true);
+                        int j=0;
                         List<Proek> proek = MainActivity.myAppDatabase.myDao().getProek();
+                        markCoords = new double[proek.size()*2];
+                        markNames = new String[proek.size()*2];
                         for (Proek i : proek) {
+                            markCoords[j] = i.getLat();
+                            markNames[j++] = i.getPoli();
+                            markCoords[j] = i.getLon();
+                            markNames[j++] = i.getXwra();
                             int code = i.getId();
                             String poli = i.getPoli();
                             String xwra = i.getXwra();
