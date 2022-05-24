@@ -6,11 +6,13 @@
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2005" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2005" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_delete.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_delete_paek.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_delete_reservation.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_insert.xml" value="0.3490740740740741" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_insert_paek.xml" value="0.3625" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_insert_proek.xml" value="0.3490740740740741" />
+        <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_insert_taxi.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_query.xml" value="0.3625" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/fragment_query_reservation.xml" value="0.33" />
@@ -21,6 +23,7 @@
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/list_item.xml" value="0.1" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/layout/welcome.xml" value="0.3625" />
         <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/menu/drawer_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/giorgipc/AndroidStudioProjects/ihu_adv_HCIi/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.319" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/arrow_back-48px.xml" value="0.2515" />
         <entry key="..\:/Users/kyuubi/AndroidStudioProjects/testingqbee/app/src/main/res/drawable/button.xml" value="0.3155" />
