@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.queryFr:
-                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new QueryFragment()).addToBackStack(null).commit();
+//                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new QueryFragment()).addToBackStack(null).commit();
+                        openQueryActivity();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.homeFr:
@@ -145,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openActivity2(){
         Intent intent = new Intent(this,settingsActivity.class);
+        startActivity(intent);
+        //finish();
+    }
+
+    public void openQueryActivity() {
+        Intent intent = new Intent(this, QueryActivity.class);
         startActivity(intent);
         //finish();
     }

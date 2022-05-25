@@ -29,4 +29,5 @@
         <item> 4. Κρατησεις με rID μεγαλυτερο του 2.</item>
     </string-array>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="placeholderSpinnder">Επιλέξτε κατηγορία</string>
 </resources>
