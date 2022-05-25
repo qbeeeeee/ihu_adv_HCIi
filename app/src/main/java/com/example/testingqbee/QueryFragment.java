@@ -1,8 +1,11 @@
 package com.example.testingqbee;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
+import java.lang.annotation.Native;
 import java.lang.reflect.Array;
 import java.util.List;
 
@@ -31,6 +35,10 @@ public class QueryFragment extends Fragment {
     String[] markNames;
     int test;
 
+    OnbundleSendListener bundleSendListener;
+    public interface OnbundleSendListener{
+        public void onBundleSendListener(Bundle b);
+    }
 
     public QueryFragment() {
         // Required empty public constructor
@@ -66,12 +74,18 @@ public class QueryFragment extends Fragment {
         showMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int orientation = getResources().getConfiguration().orientation;
                 Bundle b = new Bundle();
                 b.putDoubleArray("coords", markCoords);
                 b.putStringArray("names", markNames);
-                Intent intent = new Intent(getActivity(), MapsActivity.class);
-                intent.putExtras(b);
-                startActivityForResult(intent, 100);
+                if(orientation==1) {
+                    Intent intent = new Intent(getActivity(), MapsActivity.class);
+                    intent.putExtras(b);
+                    startActivityForResult(intent, 100);
+                }
+                else {
+                    bundleSendListener.onBundleSendListener(b);
+                }
             }
         });
 
@@ -157,5 +171,15 @@ public class QueryFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Activity activity = (Activity) context;
+        try {
+            bundleSendListener = (OnbundleSendListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException();
+        }
     }
 }
