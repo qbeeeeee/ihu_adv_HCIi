@@ -47,9 +47,9 @@ public class MapsFragment extends Fragment {
                 }
             }
             else {
-                LatLng sydney = new LatLng(-34, 151);
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                LatLng univ = new LatLng(40.6557272476235, 22.80573865360716);
+                googleMap.addMarker(new MarkerOptions().position(univ).title("ΔΙΠΑΕ, Τμήμα Μηχ. Πληροφορικής και Ηλ. Συστημάτων"));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(univ));
             }
         }
     };
